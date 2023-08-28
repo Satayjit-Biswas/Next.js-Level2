@@ -1,3 +1,4 @@
+import RootLayout from "../../components/layouts/RootLayout";
 
 const index = () => {
   return (
@@ -8,3 +9,10 @@ const index = () => {
 };
 
 export default index;
+index.getLayout = function getLayout(page) {
+  return (
+    <RootLayout>
+      {page}
+    </RootLayout>
+  )
+}

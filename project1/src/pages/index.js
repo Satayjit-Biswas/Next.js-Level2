@@ -1,63 +1,24 @@
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
-const { Header, Content, Footer } = Layout;
+import Head from "next/head";
+import Image from "next/image";
+import RootLayout from "../components/layouts/RootLayout";
 const HomePage = () => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-  return (
-    <Layout className="layout">
-      <Header
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-          items={new Array(15).fill(null).map((_, index) => {
-            const key = index + 1;
-            return {
-              key,
-              label: `nav ${key}`,
-            };
-          })}
-        />
-      </Header>
-      <Content
-        style={{
-          padding: '0 50px',
-        }}
-      >
-        <Breadcrumb
-          style={{
-            margin: '16px 0',
-          }}
-        >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>HomePage</Breadcrumb.Item>
-        </Breadcrumb>
-        <div
-          className="site-layout-content"
-          style={{
-            background: colorBgContainer,
-            minHeight:"100vh"
-          }}
-        >
-          Content
-        </div>
-      </Content>
-      <Footer
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        Ant Design ©2023 Created by Ant UED
-      </Footer>
-    </Layout>
-  );
+    return (
+        <>
+          <div>
+            <Head>
+              <title>Home page</title>
+            </Head>
+          </div>
+            <h2>Home Page</h2>
+            <div>
+              <img src="https://www.classicinformatics.com/hubfs/full-stack%20developer.png" width="100%" alt="" srcset="" />
+
+              <Image src="https://www.classicinformatics.com/hubfs/full-stack%20developer.png" width={500} height={500} alt="" layout="responsive" ></Image>
+            </div>
+        </>
+    );
 };
 export default HomePage;
+HomePage.getLayout = function getLayout(page) {
+    return <RootLayout>{page}</RootLayout>;
+};
