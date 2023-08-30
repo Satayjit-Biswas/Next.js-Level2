@@ -7,7 +7,7 @@ import Head from "next/head";
 const HomePage = () => {
 
   const {data} = useGetNewsesQuery();
-  console.log(data);
+//   console.log(data);
 
 //   const { data, isLoading, isError, error } = useGetNewsesQuery(); //-> redux store data
 //   console.log(data);

@@ -1,13 +1,18 @@
 import RootLayout from "@/components/Layouts/RootLayout";
+import { useSingleNewsesQuery } from "@/redux/api/api";
+import { useRouter } from "next/router";
 
-const NewsDetailPage = ({newsData}) => {
+const NewsDetailPage = ({ context }) => {
+    const router = useRouter();
+
+    const { data: Singledata } = useSingleNewsesQuery(router.query.newsId);
+
     return (
         <div>
             <div>
+                <p>Post Id: {Singledata?.id}</p>
                 <h1>This is news Detail Page :</h1>
-                <h3>This is news Detail Page :</h3>
-                <p>{newsData?.title}</p>
-                <p>{newsData?.id}</p>
+                <p>title: {Singledata?.title}</p>
             </div>
         </div>
     );
@@ -41,13 +46,12 @@ NewsDetailPage.getLayout = function getLayout(page) {
 //     };
 // };
 
+// export const getServerSideProps = async (context) => {
+//     const { params } = context;
+//     const res = await fetch(`http://localhost:5000/news/${params.newsId}`);
+//     const data = await res.json();
 
-export const getServerSideProps = async (context) => {
-const { params } = context
-  const res = await fetch(`http://localhost:5000/news/${params.newsId}`);
-  const data = await res.json();
-
-  return {
-      props: { newsData: data },
-  };
-};
+//     return {
+//         props: { newsData: data },
+//     };
+// };

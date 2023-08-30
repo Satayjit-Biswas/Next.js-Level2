@@ -2,6 +2,7 @@ import { Button, Card, Col, Row } from "antd";
 import Link from "next/link";
 const { Meta } = Card;
 const Allnews = ({ allnewsData }) => (
+    
     <div>
         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             {allnewsData?.map((news) => (
