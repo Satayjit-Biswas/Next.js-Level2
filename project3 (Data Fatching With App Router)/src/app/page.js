@@ -2,7 +2,7 @@ import Products from "@/components/UI/Products";
 import { getData } from "@/components/utils/getData";
 
 const HomePage = async () => {
-    const data = await getData() 
+    const data = await getData("http://localhost:5000/watches") 
     // console.log(data);
     return (
         <div>
